@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, Stethoscope, Heart, Clock, ShieldCheck, ChevronRight, BookOpen } from 'lucide-react';
 import { getAllArticles } from '@/lib/articles';
+import { ServiceCarousel } from '@/components/ServiceCarousel';
 
 export default function Home() {
   const articles = getAllArticles();
@@ -29,6 +30,20 @@ export default function Home() {
             <p className="text-xl md:text-2xl font-bold mb-8 text-gray-700 italic border-l-4 border-primary-light pl-4">
               "TẤT CẢ VÌ THÚ CƯNG NHÀ BẠN - MỖI SINH MỆNH, MỖI PHƯỚC LÀNH."
             </p>
+                        <div data-aos="fade-up" data-aos-delay="250" className="flex flex-col md:flex-row gap-6 mb-10">
+              <div className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center"><Stethoscope className="w-5 h-5 text-primary-light"/></div>
+                <span className="font-semibold text-lg">Bác Sĩ Chuyên Môn</span>
+              </div>
+              <div className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center"><Heart className="w-5 h-5 text-primary-light"/></div>
+                <span className="font-semibold text-lg">Tận Tâm & Yêu Thương</span>
+              </div>
+              <div className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 bg-primary-light/20 rounded-full flex items-center justify-center"><Clock className="w-5 h-5 text-primary-light"/></div>
+                <span className="font-semibold text-lg">Hỗ Trợ Nhanh Chóng</span>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="tel:0946884344"
@@ -48,36 +63,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features/Why Choose Us */}
-      <section className="py-16 bg-white">
+      
+      {/* Doctors Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 -mt-24 relative z-20">
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-primary-dark mb-4 group-hover:scale-110 transition-transform">
-                <Stethoscope className="w-8 h-8" />
+          <div className="text-center mb-16">
+            <h2 data-aos="fade-up" className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Đội Ngũ Bác Sĩ Chuyên Môn</h2>
+            <p data-aos="fade-up" data-aos-delay="100" className="text-gray-600 max-w-2xl mx-auto text-lg">Với chuyên môn cao và tình yêu thương động vật, đội ngũ y bác sĩ tại VET&PET luôn sẵn sàng mang lại sự chăm sóc tốt nhất cho thú cưng của bạn.</p>
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 max-w-6xl mx-auto">
+              {/* Doctor 1 */}
+              <div data-aos="fade-up" data-aos-delay="100" className="group w-full md:w-1/3 flex flex-col items-center text-center">
+                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100">
+                  <Image src="/doctor-phu.jpg" alt="BSTY Nguyễn Hoàng Phú" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">BSTY. NGUYỄN HOÀNG PHÚ</h3>
+                <p className="text-gray-500 font-medium">Bác Sĩ Nội Trú</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">Bác Sĩ Chuyên Môn</h3>
-              <p className="text-gray-600">Đội ngũ y bác sĩ được đào tạo bài bản, nhiều năm kinh nghiệm trong việc điều trị và chăm sóc thú cưng.</p>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-primary-light mb-4 group-hover:scale-110 transition-transform">
-                <Heart className="w-8 h-8" />
+              {/* Doctor 2 */}
+              <div data-aos="fade-up" data-aos-delay="200" className="group w-full md:w-1/3 flex flex-col items-center text-center">
+                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100">
+                  <Image src="/doctor-tran.jpg" alt="BSTY Lê Quyền Trân" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">BSTY. LÊ QUYỀN TRÂN</h3>
+                <p className="text-gray-500 font-medium">Bác Sĩ Chính</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">Tận Tâm & Yêu Thương</h3>
-              <p className="text-gray-600">Chúng tôi coi thú cưng của bạn như thành viên trong gia đình, chăm sóc bằng cả trái tim và tình yêu thương.</p>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-primary-dark mb-4 group-hover:scale-110 transition-transform">
-                <Clock className="w-8 h-8" />
+              {/* Doctor 3 */}
+              <div data-aos="fade-up" data-aos-delay="300" className="group w-full md:w-1/3 flex flex-col items-center text-center">
+                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100">
+                  <Image src="/doctor-hao.jpg" alt="BSTY Huỳnh Nhật Hào" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">BSTY. HUỲNH NHẬT HÀO</h3>
+                <p className="text-gray-500 font-medium">Bác Sĩ Chính</p>
               </div>
-              <h3 className="text-xl font-bold mb-2">Hỗ Trợ Nhanh Chóng</h3>
-              <p className="text-gray-600">Sẵn sàng tiếp nhận và xử lý các ca cấp cứu nhanh chóng, kịp thời mang lại sự an tâm cho bạn.</p>
             </div>
+          </div>
+        </section>
+
+      {/* Featured Services Section */}
+      <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 data-aos="fade-up" className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Dịch Vụ Nổi Bật</h2>
+            <p data-aos="fade-up" data-aos-delay="100" className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Hệ thống máy móc hiện đại và dịch vụ toàn diện giúp chẩn đoán và điều trị chính xác nhất.
+            </p>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200" className="-ml-4">
+            <ServiceCarousel />
           </div>
         </div>
       </section>
+
+
 
       {/* Handbook / Blog Section on Homepage (Moved ABOVE Services) */}
       <section className="py-16 bg-secondary">
@@ -88,7 +126,7 @@ export default function Home() {
                 <BookOpen className="w-5 h-5" />
                 <span>CẨM NANG CHĂM SÓC VÀ CA BỆNH TẠI VET&PET</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Kiến Thức Hữu Ích</h2>
+              
             </div>
             <Link href="/cam-nang" className="text-primary-dark font-semibold hover:text-primary-light transition-colors flex items-center">
               Xem tất cả bài viết <ChevronRight className="w-5 h-5 ml-1" />
@@ -126,79 +164,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Services */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dịch Vụ Nổi Bật</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">VET & PET cung cấp đầy đủ các dịch vụ chăm sóc sức khỏe, y tế chuyên sâu để thú cưng của bạn luôn khỏe mạnh.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Service 1 */}
-            <div data-aos="fade-up" className="bg-white rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-all border border-gray-100">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1599422314077-f4dfdaa4cd09?auto=format&fit=crop&q=80&w=800" alt="Siêu âm & Xray" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Siêu Âm & X-Ray</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">Chẩn đoán hình ảnh chính xác giúp phát hiện sớm các vấn đề bên trong cơ thể.</p>
-                <Link href="/dich-vu" className="text-primary-light font-semibold flex items-center text-sm hover:text-primary-dark">
-                  Tìm hiểu thêm <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div data-aos="fade-up" className="bg-white rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-all border border-gray-100">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800" alt="Xét nghiệm máu" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Xét Nghiệm Máu</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">Hệ thống máy xét nghiệm hiện đại, cho kết quả nhanh chóng và chuẩn xác.</p>
-                <Link href="/dich-vu" className="text-primary-light font-semibold flex items-center text-sm hover:text-primary-dark">
-                  Tìm hiểu thêm <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 3 */}
-            <div data-aos="fade-up" className="bg-white rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-all border border-gray-100">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800" alt="Phẫu thuật xương khớp" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Phẫu Thuật Xương Khớp</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">Xử lý các ca chấn thương phức tạp, kết hợp xương an toàn và hiệu quả.</p>
-                <Link href="/dich-vu" className="text-primary-light font-semibold flex items-center text-sm hover:text-primary-dark">
-                  Tìm hiểu thêm <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 4 */}
-            <div data-aos="fade-up" className="bg-white rounded-xl overflow-hidden shadow-md group hover:shadow-xl transition-all border border-gray-100">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800" alt="Lưu trú - Hotel" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 text-gray-900">Lưu Trú - Hotel</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">Không gian sạch sẽ, thoáng mát và chế độ chăm sóc chuẩn mực khi bạn đi vắng.</p>
-                <Link href="/dich-vu" className="text-primary-light font-semibold flex items-center text-sm hover:text-primary-dark">
-                  Tìm hiểu thêm <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-10">
-            <Link href="/dich-vu" className="inline-flex items-center justify-center bg-white border-2 border-primary-dark text-primary-dark hover:bg-primary-dark hover:text-white px-8 py-3 rounded-full font-bold transition-all">
-              Xem Tất Cả Dịch Vụ
-            </Link>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Video Library */}
       <section className="py-16 bg-secondary border-t border-gray-100">

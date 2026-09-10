@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Phone, Stethoscope, Heart, Clock, ShieldCheck, ChevronRight, BookOpen } from 'lucide-react';
 import { getAllArticles } from '@/lib/articles';
 import { ServiceCarousel } from '@/components/ServiceCarousel';
+import { CallButton } from '@/components/CallButton';
 
 export default function Home() {
   const articles = getAllArticles();
@@ -45,13 +46,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="tel:0946884344"
-                className="flex items-center justify-center gap-2 bg-primary-dark hover:bg-blue-800 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl"
-              >
-                <Phone className="w-6 h-6" />
-                Gọi Đặt Lịch
-              </a>
+              <CallButton />
               <Link 
                 href="/dich-vu"
                 className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-primary-dark border-2 border-primary-dark px-8 py-4 rounded-full font-bold text-lg transition-all shadow-md"

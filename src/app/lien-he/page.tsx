@@ -102,7 +102,7 @@ export default function ContactPage() {
                     </div>
                     <div className="w-full h-40 bg-gray-200 rounded-lg overflow-hidden relative mt-3">
                       <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.9483624!2d106.5889595!3d10.8008165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b343590e95d%3A0xb4f4ec7729775564!2sTH%C3%9A%20Y%20-%20TRUNG%20T%C3%82M%20TH%C3%9A%20Y%20VET%26PET!5e0!3m2!1svi!2s!4v1715000000003" 
+                        src="https://maps.google.com/maps?q=10.8008112,106.5915344+(THÚ%20Y%20-%20TRUNG%20TÂM%20THÚ%20Y%20VET%26PET)&hl=vi&z=17&output=embed" 
                         width="100%" 
                         height="100%" 
                         style={{border:0}} 
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     </div>
                     <div className="w-full h-40 bg-gray-200 rounded-lg overflow-hidden relative mt-3">
                       <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4!2d106.6919643!3d10.8191074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175297d3d9286a1%3A0x7d88df1bf1b424c7!2sTh%C3%BA%20Y%20Vet%26Pet%20B%C3%ACnh%20Th%E1%BA%A1nh%20-%20D%E1%BB%8Bch%20v%E1%BB%A5%20Th%C3%BA%20Y%20t%E1%BA%ADn%20nh%C3%A0%20TP.%20HCM!5e0!3m2!1svi!2s!4v1715000000004" 
+                        src="https://maps.google.com/maps?q=10.8191021,106.6945392+(Thú%20Y%20Vet%26Pet%20Bình%20Thạnh)&hl=vi&z=17&output=embed" 
                         width="100%" 
                         height="100%" 
                         style={{border:0}} 
@@ -208,11 +208,11 @@ export default function ContactPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Họ tên của bạn *</label>
-                      <input required name="name" value={formData.name} onChange={handleChange} type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none" placeholder="VD: Nguyễn Văn A" />
+                      <input autoComplete="off" required name="name" value={formData.name} onChange={handleChange} type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none" placeholder="VD: Nguyễn Văn A" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Số điện thoại *</label>
-                      <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none" placeholder="VD: 09..." />
+                      <input autoComplete="off" required name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none" placeholder="VD: 09..." />
                     </div>
                   </div>
 

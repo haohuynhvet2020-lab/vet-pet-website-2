@@ -29,7 +29,7 @@ export default function Home() {
               <span className="text-primary-light">VET&PET</span>
             </h1>
             <p className="text-xl md:text-2xl font-bold mb-8 text-gray-700 italic border-l-4 border-primary-light pl-4">
-              "TẤT CẢ VÌ THÚ CƯNG NHÀ BẠN - MỖI SINH MỆNH, MỖI PHƯỚC LÀNH."
+              &quot;TẤT CẢ VÌ THÚ CƯNG NHÀ BẠN - MỖI SINH MỆNH, MỖI PHƯỚC LÀNH.&quot;
             </p>
                         <div data-aos="fade-up" data-aos-delay="250" className="flex flex-col md:flex-row gap-6 mb-10">
               <div className="flex items-center gap-3 text-white">
@@ -207,9 +207,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div data-aos="zoom-in" className="bg-secondary p-8 rounded-2xl shadow-sm border border-gray-100 relative flex flex-col">
-              <div className="text-primary-light text-4xl font-serif absolute top-4 left-6">"</div>
+              <div className="text-primary-light text-4xl font-serif absolute top-4 left-6">&quot;</div>
               <p className="text-gray-700 italic mb-6 relative z-10 pt-4 flex-grow">
-                "Anh chị bác sĩ ở đây siêu nhiệt tình, hướng dẫn rất chi tiết khi bé nhà mình bệnh, mình theo ở đây từ lúc tiệm vừa mới mở, chi phí hợp lý, chữa bệnh dứt điểm."
+                &quot;Anh chị bác sĩ ở đây siêu nhiệt tình, hướng dẫn rất chi tiết khi bé nhà mình bệnh, mình theo ở đây từ lúc tiệm vừa mới mở, chi phí hợp lý, chữa bệnh dứt điểm.&quot;
               </p>
               <div className="flex items-center gap-4 border-t border-gray-200 pt-4">
                 <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center font-bold text-xl rounded-full overflow-hidden relative">
@@ -224,9 +224,9 @@ export default function Home() {
             </div>
 
             <div data-aos="zoom-in" className="bg-secondary p-8 rounded-2xl shadow-sm border border-gray-100 relative flex flex-col">
-              <div className="text-primary-light text-4xl font-serif absolute top-4 left-6">"</div>
+              <div className="text-primary-light text-4xl font-serif absolute top-4 left-6">&quot;</div>
               <p className="text-gray-700 italic mb-6 relative z-10 pt-4 flex-grow">
-                "Lần đầu đến nhưng khá yên tâm về dịch vụ, chất lượng, tư vấn. Mình chỉ tiêm nhắc bệnh, tiêm dại thôi nên ko có gì phức tạp, bé chịu các cô tiêm và phối hợp, ko quậy, chắc do các bạn khá kinh nghiệm."
+                &quot;Lần đầu đến nhưng khá yên tâm về dịch vụ, chất lượng, tư vấn. Mình chỉ tiêm nhắc bệnh, tiêm dại thôi nên ko có gì phức tạp, bé chịu các cô tiêm và phối hợp, ko quậy, chắc do các bạn khá kinh nghiệm.&quot;
               </p>
               <div className="flex items-center gap-4 border-t border-gray-200 pt-4">
                 <div className="w-12 h-12 bg-gray-600 text-white flex items-center justify-center font-bold text-xl rounded-full overflow-hidden relative">
@@ -241,9 +241,9 @@ export default function Home() {
             </div>
 
             <div data-aos="zoom-in" className="bg-secondary p-8 rounded-2xl shadow-sm border border-gray-100 relative flex flex-col">
-              <div className="text-primary-light text-4xl font-serif absolute top-4 left-6">"</div>
+              <div className="text-primary-light text-4xl font-serif absolute top-4 left-6">&quot;</div>
               <p className="text-gray-700 italic mb-6 relative z-10 pt-4 flex-grow text-sm">
-                "Mình chăm Bun hơi vụng nên gặp được bác sĩ ở Vet&Pet mình thấy yên tâm hẳn. Bun lớn tuổi rồi nên bác sĩ để ý sức khỏe rất kỹ rồi mới chọn cách điều trị phù hợp. Đặc biệt chị bác sĩ nữ rất nhiệt tình, chữa tai cho Bun cẩn thận, sau phẫu thuật còn đến nhà thay băng định kỳ... Chi phí khám, điều trị hợp lý, không bắt mua thêm cái này cái kia. Rất quý bác sĩ có tâm như vậy ❤️"
+                &quot;Mình chăm Bun hơi vụng nên gặp được bác sĩ ở Vet&Pet mình thấy yên tâm hẳn. Bun lớn tuổi rồi nên bác sĩ để ý sức khỏe rất kỹ rồi mới chọn cách điều trị phù hợp. Đặc biệt chị bác sĩ nữ rất nhiệt tình, chữa tai cho Bun cẩn thận, sau phẫu thuật còn đến nhà thay băng định kỳ... Chi phí khám, điều trị hợp lý, không bắt mua thêm cái này cái kia. Rất quý bác sĩ có tâm như vậy ạ🥰&quot;
               </p>
               <div className="flex items-center gap-4 border-t border-gray-200 pt-4">
                 <div className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center font-bold text-xl rounded-full overflow-hidden relative">

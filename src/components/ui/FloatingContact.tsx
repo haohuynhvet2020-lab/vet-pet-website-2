@@ -18,7 +18,7 @@ export function FloatingContact() {
 
       {/* Messenger Button */}
       <a 
-        href="https://m.me/" 
+        href="https://m.me/VetAndPet1907" 
         target="_blank" 
         rel="noopener noreferrer"
         className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all"

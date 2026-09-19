@@ -1,24 +1,64 @@
 import Image from 'next/image';
 
 export default function AboutPage() {
+      
+  const groomers = [
+    {
+      name: "TRẦN THỊ MỸ LINH",
+      role: "Groomer Chuyên Nghiệp",
+      image: "/groomer-linh.jpg",
+      description: "Với đôi bàn tay khéo léo và gu thẩm mỹ tinh tế, Mỹ Linh luôn biết cách biến hóa để các bé thú cưng trở nên xinh xắn và đáng yêu nhất."
+    },
+    {
+      name: "NGUYỄN THANH TÚ",
+      role: "Groomer Chuyên Nghiệp",
+      image: "/groomer-tu.jpg",
+      description: "Đam mê và nhiệt huyết với nghề, Thanh Tú không chỉ mang lại vẻ ngoài hoàn hảo mà còn giúp các bé cảm thấy thư giãn, thoải mái trong suốt quá trình làm đẹp."
+    },
+    {
+      name: "LÊ NGUYỄN NGỌC TUYỀN",
+      role: "Chuyên Viên Spa Chuyên Nghiệp",
+      image: "/groomer-tuyen-v2.jpg",
+      description: "Am hiểu sâu sắc về chăm sóc da và lông thú cưng, Ngọc Tuyền cung cấp các liệu trình spa chuyên sâu giúp các bé luôn sạch sẽ, khỏe mạnh và thơm tho."
+    }
+  ];
+
   const doctors = [
-    {
-      name: "BSTY. NGUYỄN HOÀNG PHÚ",
-      role: "Bác Sĩ Nội Trú",
-      image: "/doctor-phu.jpg",
-      description: "Được đào tạo chuyên sâu về nội khoa, bác sĩ Phú luôn tận tâm theo dõi và chăm sóc sức khỏe toàn diện cho các bé thú cưng."
-    },
-    {
-      name: "BSTY. LÊ QUYỀN TRÂN",
-      role: "Bác Sĩ Chính",
-      image: "/doctor-tran.jpg",
-      description: "Kinh nghiệm dày dặn trong chẩn đoán hình ảnh và điều trị bệnh lý phức tạp, mang lại sự an tâm tuyệt đối cho khách hàng."
-    },
     {
       name: "BSTY. HUỲNH NHẬT HÀO",
       role: "Bác Sĩ Chính",
       image: "/doctor-hao.jpg",
       description: "Thế mạnh về phẫu thuật ngoại khoa và xương khớp, bác sĩ Hào đã trực tiếp điều trị thành công hàng ngàn ca bệnh khó."
+    },
+    {
+      name: "BSTY. ĐẶNG THỊ TUYẾT NGA",
+      role: "Bác Sĩ Chính",
+      image: "/doctor-nga.jpg",
+      description: "Với kiến thức vững vàng và kinh nghiệm thực tiễn, bác sĩ Nga là người bạn đồng hành đáng tin cậy của mọi gia đình."
+    },
+    {
+      name: "BSTY. LÊ QUYỀN TRÂN",
+      role: "Bác Sĩ Chính",
+      image: "/doctor-tran-new.jpg",
+      description: "Kinh nghiệm dày dặn trong chẩn đoán hình ảnh và điều trị bệnh lý phức tạp, mang lại sự an tâm tuyệt đối cho khách hàng."
+    },
+    {
+      name: "BSTY. NGUYỄN HOÀNG PHÚ",
+      role: "Bác Sĩ Nội Trú",
+      image: "/doctor-phu-new.jpg",
+      description: "Được đào tạo chuyên sâu về nội khoa, bác sĩ Phú luôn tận tâm theo dõi và chăm sóc sức khỏe toàn diện cho các bé thú cưng."
+    },
+    {
+      name: "BSTY. TRẦN THỊ THUÝ NGỌC",
+      role: "Bác Sĩ Nội Trú",
+      image: "/doctor-ngoc.jpg",
+      description: "Chuyên môn cao và tình yêu thương động vật sâu sắc, bác sĩ Ngọc luôn mang đến sự chăm sóc nhẹ nhàng và hiệu quả."
+    },
+    {
+      name: "BSTY. KHÊ NỮ THUỶ TIÊN",
+      role: "Bác Sĩ Nội Trú",
+      image: "/doctor-tien.jpg",
+      description: "Tận tâm và tỉ mỉ trong từng ca khám, bác sĩ Tiên luôn đảm bảo thú cưng nhận được phác đồ điều trị phù hợp nhất."
     }
   ];
 
@@ -104,8 +144,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {doctors.map((doc, idx) => (
               <div key={idx} className="bg-white rounded-2xl overflow-hidden text-center hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
-                <div className="relative h-[350px] w-full overflow-hidden">
-                  <Image src={doc.image} alt={doc.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#021428]">
+                  <Image src={doc.image} alt={doc.name} fill className="object-contain group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-primary-dark mb-1">{doc.name}</h3>
@@ -116,6 +156,30 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        {/* Groomers */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase">Đội Ngũ Grooming - Spa</h2>
+            <p className="text-gray-600 text-lg">Bên cạnh y tế, đội ngũ chuyên viên Grooming - Spa tận tâm của VET&PET sẽ mang lại vẻ ngoài hoàn hảo và trải nghiệm thư giãn nhất cho các bé.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {groomers.map((doc, idx) => (
+              <div key={idx} className="bg-white rounded-2xl overflow-hidden text-center hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#021428]">
+                  <Image src={doc.image} alt={doc.name} fill className="object-contain group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-primary-dark mb-1">{doc.name}</h3>
+                  <p className="text-primary-light font-bold mb-4">{doc.role}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{doc.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

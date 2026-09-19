@@ -29,7 +29,7 @@ export default function Home() {
               <span className="text-primary-light">VET&PET</span>
             </h1>
             <p className="text-xl md:text-2xl font-bold mb-8 text-gray-700 italic border-l-4 border-primary-light pl-4">
-              &quot;TẤT CẢ VÌ THÚ CƯNG NHÀ BẠN - MỖI SINH MỆNH, MỖI PHƯỚC LÀNH.&quot;
+              &quot;TẤT CẢ VÌ THÚ CƯNG NHÀ BẠN <br className="hidden md:block" />- MỖI SINH MỆNH, MỖI PHƯỚC&nbsp;LÀNH.&quot;
             </p>
                         <div data-aos="fade-up" data-aos-delay="250" className="flex flex-col md:flex-row gap-6 mb-10">
               <div className="flex items-center gap-3 text-white">
@@ -66,37 +66,57 @@ export default function Home() {
             <h2 data-aos="fade-up" className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Đội Ngũ Bác Sĩ Chuyên Môn</h2>
             <p data-aos="fade-up" data-aos-delay="100" className="text-gray-600 max-w-2xl mx-auto text-lg">Với chuyên môn cao và tình yêu thương động vật, đội ngũ y bác sĩ tại VET&PET luôn sẵn sàng mang lại sự chăm sóc tốt nhất cho thú cưng của bạn.</p>
           </div>
-          <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 max-w-6xl mx-auto">
-              {/* Doctor 1 */}
-              <div data-aos="fade-up" data-aos-delay="100" className="group w-full md:w-1/3 flex flex-col items-center text-center">
-                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100">
-                  <Image src="/doctor-phu.jpg" alt="BSTY Nguyễn Hoàng Phú" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                { name: "BSTY. HUỲNH NHẬT HÀO", role: "Bác Sĩ Chính", image: "/doctor-hao.jpg" },
+                { name: "BSTY. ĐẶNG THỊ TUYẾT NGA", role: "Bác Sĩ Chính", image: "/doctor-nga.jpg" },
+                { name: "BSTY. LÊ QUYỀN TRÂN", role: "Bác Sĩ Chính", image: "/doctor-tran-new.jpg" },
+                { name: "BSTY. NGUYỄN HOÀNG PHÚ", role: "Bác Sĩ Nội Trú", image: "/doctor-phu-new.jpg" },
+                { name: "BSTY. TRẦN THỊ THUÝ NGỌC", role: "Bác Sĩ Nội Trú", image: "/doctor-ngoc.jpg" },
+                { name: "BSTY. KHÊ NỮ THUỶ TIÊN", role: "Bác Sĩ Nội Trú", image: "/doctor-tien.jpg" }
+              ].map((doc, idx) => (
+                <div key={idx} data-aos="fade-up" data-aos-delay={(idx % 3 + 1) * 100} className="group w-full flex flex-col items-center text-center">
+                  <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100 bg-[#021428]">
+                    <Image src={doc.image} alt={doc.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">{doc.name}</h3>
+                  <p className="text-gray-500 font-medium">{doc.role}</p>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">BSTY. NGUYỄN HOÀNG PHÚ</h3>
-                <p className="text-gray-500 font-medium">Bác Sĩ Nội Trú</p>
-              </div>
-              {/* Doctor 2 */}
-              <div data-aos="fade-up" data-aos-delay="200" className="group w-full md:w-1/3 flex flex-col items-center text-center">
-                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100">
-                  <Image src="/doctor-tran.jpg" alt="BSTY Lê Quyền Trân" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              ))}
+            </div>
+          </div>
+</section>
+
+      
+        {/* Groomers Section */}
+        <section className="py-20 bg-white border-t border-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 data-aos="fade-up" className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Đội Ngũ Grooming - Spa</h2>
+              <p data-aos="fade-up" data-aos-delay="100" className="text-gray-600 max-w-2xl mx-auto text-lg">
+                Bên cạnh y tế, đội ngũ chuyên viên Grooming - Spa tận tâm của VET&PET sẽ mang lại vẻ ngoài hoàn hảo và trải nghiệm thư giãn nhất cho các bé.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                { name: "TRẦN THỊ MỸ LINH", role: "Groomer Chuyên Nghiệp", image: "/groomer-linh.jpg" },
+                { name: "NGUYỄN THANH TÚ", role: "Groomer Chuyên Nghiệp", image: "/groomer-tu.jpg" },
+                { name: "LÊ NGUYỄN NGỌC TUYỀN", role: "Chuyên Viên Spa", image: "/groomer-tuyen-v2.jpg" }
+              ].map((doc, idx) => (
+                <div key={idx} data-aos="fade-up" data-aos-delay={(idx % 3 + 1) * 100} className="group w-full flex flex-col items-center text-center">
+                  <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100 bg-[#021428]">
+                    <Image src={doc.image} alt={doc.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">{doc.name}</h3>
+                  <p className="text-gray-500 font-medium">{doc.role}</p>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">BSTY. LÊ QUYỀN TRÂN</h3>
-                <p className="text-gray-500 font-medium">Bác Sĩ Chính</p>
-              </div>
-              {/* Doctor 3 */}
-              <div data-aos="fade-up" data-aos-delay="300" className="group w-full md:w-1/3 flex flex-col items-center text-center">
-                <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100">
-                  <Image src="/doctor-hao.jpg" alt="BSTY Huỳnh Nhật Hào" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-primary-dark mb-2">BSTY. HUỲNH NHẬT HÀO</h3>
-                <p className="text-gray-500 font-medium">Bác Sĩ Chính</p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-      {/* Featured Services Section */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
+{/* Featured Services Section */}
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 data-aos="fade-up" className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Dịch Vụ Nổi Bật</h2>

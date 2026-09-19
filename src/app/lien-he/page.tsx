@@ -37,7 +37,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           'Họ tên': formData.name,
           'Số điện thoại': formData.phone,
-          'Cơ sở': formData.branch === 'cs1' ? 'Cơ sở 1 - KDC Vĩnh Lộc, Bình Tân' : 'Cơ sở 2 - Phan Văn Trị, Bình Thạnh',
+          'Cơ sở': formData.branch === 'cs1' ? 'Cơ sở 1 - KDC Vĩnh Lộc, Bình Tân' : 'Cơ sở 2 - 393 Phan Văn Trị, Bình Thạnh',
           'Ngày khám': formData.date,
           'Giờ dự kiến': formData.time,
           'Thú cưng': formData.pet,
@@ -121,7 +121,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-2 text-primary-light">Cơ Sở 2</h3>
-                    <p className="text-gray-600 mb-2">Phan Văn Trị, Phường 11, Bình Thạnh, TP.HCM</p>
+                    <p className="text-gray-600 mb-2">393 Phan Văn Trị, Phường 11, Bình Thạnh, TP.HCM</p>
                     <div className="flex gap-2 flex-wrap">
                       <a href="tel:0867059950" className="inline-flex items-center gap-1 bg-primary-light text-white text-sm px-3 py-1.5 rounded-full font-semibold hover:bg-blue-500 transition-colors">
                         <Phone className="w-3.5 h-3.5"/> 0867.059.950
@@ -221,7 +221,7 @@ export default function ContactPage() {
                     <select required name="branch" value={formData.branch} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none bg-white">
                       <option value="">-- Chọn cơ sở --</option>
                       <option value="cs1">Cơ sở 1 (KDC Vĩnh Lộc, Q. Bình Tân)</option>
-                      <option value="cs2">Cơ sở 2 (Phan Văn Trị, Q. Bình Thạnh)</option>
+                      <option value="cs2">Cơ sở 2 (393 Phan Văn Trị, Q. Bình Thạnh)</option>
                     </select>
                   </div>
 

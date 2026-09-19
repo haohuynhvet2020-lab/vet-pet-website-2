@@ -37,7 +37,7 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-primary-light shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-gray-900 block mb-1">Cơ sở 2</span>
-                  393 Phan Văn Trị, Phường Bình Lợi Trung, Bình Tân, TP.HCM<br/>
+                  393 Phan Văn Trị, Phường 11, Bình Thạnh, TP.HCM<br/>
                   <a href="tel:0867059950" className="text-primary-dark font-semibold mt-1 inline-block">Hotline: 0867 059 950</a>
                 </div>
               </li>

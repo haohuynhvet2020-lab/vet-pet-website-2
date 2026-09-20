@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const articles = getAllArticles();
-  const article = articles.find((a) => a.slug === resolvedParams.slug);
+  const article = articles.find((a) => decodeURIComponent(a.slug) === decodeURIComponent(resolvedParams.slug));
 
   if (!article) {
     notFound();

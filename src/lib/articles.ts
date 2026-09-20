@@ -38,13 +38,22 @@ export function getAllArticles(): Article[] {
     };
   });
 
+  
   return allArticles.sort((a, b) => {
-    // Simple sort (assuming DD/MM/YYYY)
-    const [d1, m1, y1] = a.date.split('/');
-    const [d2, m2, y2] = b.date.split('/');
-    const dateA = new Date(`${y1}-${m1}-${d1}`);
-    const dateB = new Date(`${y2}-${m2}-${d2}`);
-    if (dateA < dateB) return 1;
-    return -1;
+    try {
+      const dateA_str = a.date || '01/01/2000';
+      const dateB_str = b.date || '01/01/2000';
+      const partsA = dateA_str.split('/');
+      const partsB = dateB_str.split('/');
+      
+      const dateA = new Date(`${partsA[2] || '2000'}-${partsA[1] || '01'}-${partsA[0] || '01'}`);
+      const dateB = new Date(`${partsB[2] || '2000'}-${partsB[1] || '01'}-${partsB[0] || '01'}`);
+      
+      if (dateA < dateB) return 1;
+      return -1;
+    } catch (e) {
+      return 0;
+    }
   });
+
 }

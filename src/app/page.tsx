@@ -71,6 +71,7 @@ export default function Home() {
                 { name: "BSTY. HUỲNH NHẬT HÀO", role: "Bác Sĩ Chính", image: "/doctor-hao.jpg" },
                 { name: "BSTY. ĐẶNG THỊ TUYẾT NGA", role: "Bác Sĩ Chính", image: "/doctor-nga.jpg" },
                 { name: "BSTY. LÊ QUYỀN TRÂN", role: "Bác Sĩ Chính", image: "/doctor-tran-new.jpg" },
+                { name: "BSTY. VÕ HỒNG ĐAN NGỌC", role: "Bác Sĩ Chính", image: "/doctor-dan-ngoc.jpg" },
                 { name: "BSTY. NGUYỄN HOÀNG PHÚ", role: "Bác Sĩ Nội Trú", image: "/doctor-phu-new.jpg" },
                 { name: "BSTY. TRẦN THỊ THUÝ NGỌC", role: "Bác Sĩ Nội Trú", image: "/doctor-ngoc.jpg" },
                 { name: "BSTY. KHÊ NỮ THUỶ TIÊN", role: "Bác Sĩ Nội Trú", image: "/doctor-tien.jpg" }
@@ -101,7 +102,8 @@ export default function Home() {
               {[
                 { name: "TRẦN THỊ MỸ LINH", role: "Groomer Chuyên Nghiệp", image: "/groomer-linh.jpg" },
                 { name: "NGUYỄN THANH TÚ", role: "Groomer Chuyên Nghiệp", image: "/groomer-tu.jpg" },
-                { name: "LÊ NGUYỄN NGỌC TUYỀN", role: "Chuyên Viên Spa", image: "/groomer-tuyen-v2.jpg" }
+                { name: "LÊ NGUYỄN NGỌC TUYỀN", role: "Chuyên Viên Spa", image: "/groomer-tuyen-v2.jpg" },
+                { name: "NGUYỄN NGỌC THIÊN THANH", role: "Groomer Chuyên Nghiệp", image: "/groomer-thanh.jpg" }
               ].map((doc, idx) => (
                 <div key={idx} data-aos="fade-up" data-aos-delay={(idx % 3 + 1) * 100} className="group w-full flex flex-col items-center text-center">
                   <div className="relative w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-xl border border-gray-100 bg-[#021428]">

@@ -20,6 +20,12 @@ export default function AboutPage() {
       role: "Chuyên Viên Spa Chuyên Nghiệp",
       image: "/groomer-tuyen-v2.jpg",
       description: "Am hiểu sâu sắc về chăm sóc da và lông thú cưng, Ngọc Tuyền cung cấp các liệu trình spa chuyên sâu giúp các bé luôn sạch sẽ, khỏe mạnh và thơm tho."
+    },
+    {
+      name: "NGUYỄN NGỌC THIÊN THANH",
+      role: "Groomer Chuyên Nghiệp",
+      image: "/groomer-thanh.jpg",
+      description: "Tỉ mỉ và khéo léo trong từng đường kéo, Thiên Thanh luôn biến các bé thú cưng trở nên xinh đẹp và gọn gàng nhất."
     }
   ];
 

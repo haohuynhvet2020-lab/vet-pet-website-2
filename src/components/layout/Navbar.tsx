@@ -24,7 +24,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center md:space-x-5 lg:space-x-8">
+          <div className="hidden lg:flex items-center lg:space-x-5 xl:space-x-7 text-sm xl:text-base">
             <Link href="/" className="text-gray-700 hover:text-primary-light font-medium transition-colors whitespace-nowrap">
               Trang chủ
             </Link>
@@ -65,9 +65,12 @@ export function Navbar() {
             <Link href="/cam-nang" className="text-gray-700 hover:text-primary-light font-medium transition-colors whitespace-nowrap">
               Cẩm nang và ca bệnh thực tế
             </Link>
+            <Link href="/cam-nang-cham-soc" className="text-gray-700 hover:text-primary-light font-medium transition-colors whitespace-nowrap">
+              Cẩm nang chăm sóc
+            </Link>
           </div>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <Link 
               href="/lien-he" 
               className="flex items-center space-x-2 bg-primary-dark hover:bg-primary-dark/90 text-white px-5 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg whitespace-nowrap"
@@ -78,7 +81,7 @@ export function Navbar() {
 
           {/* Mobile menu button */}
           <button 
-            className="md:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-gray-700"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <Menu className="w-6 h-6" />
@@ -88,12 +91,13 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown (Simplified) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg absolute w-full">
-          <Link href="/" className="block text-gray-700 font-medium">Trang chủ</Link>
-          <Link href="/gioi-thieu" className="block text-gray-700 font-medium">Giới thiệu</Link>
-          <Link href="/dich-vu" className="block text-gray-700 font-medium text-primary-light">Dịch vụ</Link>
-          <Link href="/cam-nang" className="block text-gray-700 font-medium">Cẩm nang và ca bệnh thực tế</Link>
-          <Link href="/lien-he" className="block text-primary-dark font-bold">Đặt Lịch & Liên hệ</Link>
+        <div className="lg:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg absolute w-full">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-medium">Trang chủ</Link>
+          <Link href="/gioi-thieu" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-medium">Giới thiệu</Link>
+          <Link href="/dich-vu" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-medium text-primary-light">Dịch vụ</Link>
+          <Link href="/cam-nang" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-medium">Cẩm nang và ca bệnh thực tế</Link>
+          <Link href="/cam-nang-cham-soc" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-medium">Cẩm nang chăm sóc</Link>
+          <Link href="/lien-he" onClick={() => setIsMobileMenuOpen(false)} className="block text-primary-dark font-bold">Đặt Lịch & Liên hệ</Link>
         </div>
       )}
     </nav>

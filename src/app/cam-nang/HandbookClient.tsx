@@ -27,7 +27,7 @@ export default function HandbookClient({ articles }: { articles: Article[] }) {
         {/* Header & Search */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-primary-dark mb-2">CẨM NANG CHĂM SÓC VÀ CA BỆNH TẠI VET&PET</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-primary-dark mb-2">CẨM NANG VÀ CA BỆNH THỰC TẾ TẠI VET&PET</h1>
             <p className="text-gray-600">Kiến thức hữu ích về cách nuôi dưỡng và chăm sóc thú cưng.</p>
           </div>
           <div className="w-full md:w-96 relative">

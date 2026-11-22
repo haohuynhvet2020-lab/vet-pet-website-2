@@ -12,7 +12,7 @@ public_folder: "/uploads"
 
 collections:
   - name: "articles"
-    label: "Cẩm Nang / Ca Bệnh"
+    label: "Cẩm nang và ca bệnh thực tế"
     folder: "content/articles"
     create: true
     slug: "{{slug}}"
@@ -23,3 +23,16 @@ collections:
       - {label: "Mô tả ngắn", name: "excerpt", widget: "text"}
       - {label: "Ngày đăng", name: "date", widget: "datetime", format: "DD/MM/YYYY", date_format: "DD/MM/YYYY", time_format: false}
       - {label: "Nội dung", name: "body", widget: "markdown"}
+
+  - name: "care-guides"
+    label: "Cẩm nang chăm sóc (Poster)"
+    folder: "content/care-guides"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tiêu đề", name: "title", widget: "string"}
+      - {label: "Danh mục", name: "category", widget: "select", options: ["Chăm sóc chung", "Chó", "Mèo", "Dinh dưỡng", "Tiêm phòng & Ký sinh trùng"], default: "Chăm sóc chung"}
+      - {label: "Hình ảnh Poster", name: "image", widget: "image"}
+      - {label: "Ngày đăng", name: "date", widget: "datetime", format: "DD/MM/YYYY", date_format: "DD/MM/YYYY", time_format: false}
+      - {label: "Mô tả ngắn", name: "excerpt", widget: "text", required: false}
+      - {label: "Nội dung chi tiết", name: "body", widget: "markdown", required: false}

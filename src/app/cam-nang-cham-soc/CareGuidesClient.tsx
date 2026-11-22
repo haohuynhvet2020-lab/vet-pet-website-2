@@ -5,18 +5,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
-  Clock,
-  Pause,
-  Play,
   Search,
-  Shuffle,
   Sparkles,
   X,
   ZoomIn,
 } from 'lucide-react';
 import { Article } from '@/lib/articles';
 
-const AUTO_ADVANCE_SECONDS = 300; // 5 minutes
+const AUTO_ADVANCE_SECONDS = 180; // 3 minutes
 const CATEGORIES = [
   'Tất cả',
   'Chăm sóc chung',
@@ -26,19 +22,10 @@ const CATEGORIES = [
   'Tiêm phòng & Ký sinh trùng',
 ];
 
-function formatCountdown(totalSeconds: number): string {
-  const mins = Math.floor(totalSeconds / 60);
-  const secs = totalSeconds % 60;
-  return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-}
-
 export default function CareGuidesClient({ posters }: { posters: Article[] }) {
   const [activeCategory, setActiveCategory] = useState('Tất cả');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [switchMode, setSwitchMode] = useState<'next' | 'random'>('next');
-  const [secondsLeft, setSecondsLeft] = useState(AUTO_ADVANCE_SECONDS);
-  const [isPaused, setIsPaused] = useState(false);
   const secondsRef = useRef(AUTO_ADVANCE_SECONDS);
 
   const filteredPosters = useMemo(() => {
@@ -57,27 +44,14 @@ export default function CareGuidesClient({ posters }: { posters: Article[] }) {
 
   const selectPosterAt = useCallback((idx: number | null) => {
     secondsRef.current = AUTO_ADVANCE_SECONDS;
-    setSecondsLeft(AUTO_ADVANCE_SECONDS);
     setActiveIndex(idx);
   }, []);
 
-  const goToNextPoster = useCallback(
-    (mode: 'next' | 'random' = switchMode) => {
-      if (filteredPosters.length <= 1 || activeIndex === null) return;
-
-      let nextIdx: number;
-      if (mode === 'random') {
-        const candidates = filteredPosters
-          .map((_, idx) => idx)
-          .filter((idx) => idx !== activeIndex);
-        nextIdx = candidates[Math.floor(Math.random() * candidates.length)];
-      } else {
-        nextIdx = (activeIndex + 1) % filteredPosters.length;
-      }
-      selectPosterAt(nextIdx);
-    },
-    [filteredPosters, activeIndex, switchMode, selectPosterAt]
-  );
+  const goToNextPoster = useCallback(() => {
+    if (filteredPosters.length <= 1 || activeIndex === null) return;
+    const nextIdx = (activeIndex + 1) % filteredPosters.length;
+    selectPosterAt(nextIdx);
+  }, [filteredPosters.length, activeIndex, selectPosterAt]);
 
   const goToPrevPoster = useCallback(() => {
     if (filteredPosters.length <= 1 || activeIndex === null) return;
@@ -85,25 +59,24 @@ export default function CareGuidesClient({ posters }: { posters: Article[] }) {
     selectPosterAt(prevIdx);
   }, [filteredPosters.length, activeIndex, selectPosterAt]);
 
-  // 5-minute countdown timer while a poster modal is open
+  // 3-minute auto-advance timer while a poster is open
   useEffect(() => {
-    if (activeIndex === null || isPaused || filteredPosters.length <= 1) {
+    if (activeIndex === null || filteredPosters.length <= 1) {
       return;
     }
 
     const timer = window.setInterval(() => {
       if (secondsRef.current <= 1) {
-        goToNextPoster(switchMode);
+        goToNextPoster();
       } else {
         secondsRef.current -= 1;
-        setSecondsLeft(secondsRef.current);
       }
     }, 1000);
 
     return () => window.clearInterval(timer);
-  }, [activeIndex, isPaused, filteredPosters.length, switchMode, goToNextPoster]);
+  }, [activeIndex, filteredPosters.length, goToNextPoster]);
 
-  // Keyboard navigation inside lightbox
+  // Keyboard navigation inside fullscreen viewer
   useEffect(() => {
     if (activeIndex === null) return;
 
@@ -111,7 +84,7 @@ export default function CareGuidesClient({ posters }: { posters: Article[] }) {
       if (e.key === 'Escape') {
         selectPosterAt(null);
       } else if (e.key === 'ArrowRight') {
-        goToNextPoster('next');
+        goToNextPoster();
       } else if (e.key === 'ArrowLeft') {
         goToPrevPoster();
       }
@@ -181,10 +154,7 @@ export default function CareGuidesClient({ posters }: { posters: Article[] }) {
                   <button
                     key={poster.slug}
                     type="button"
-                    onClick={() => {
-                      setIsPaused(false);
-                      selectPosterAt(idx);
-                    }}
+                    onClick={() => selectPosterAt(idx)}
                     className="text-left bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
                     <div className="relative aspect-[3/4] w-full bg-gray-50 overflow-hidden">
@@ -261,156 +231,61 @@ export default function CareGuidesClient({ posters }: { posters: Article[] }) {
         </div>
       </div>
 
-      {/* Poster Lightbox Modal with 5-minute auto-switch */}
+      {/* Pure Fullscreen Poster Lightbox (3-minute auto-switch, no titles/captions/timers) */}
       {activePoster && activeIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-2 sm:p-4"
           onClick={() => selectPosterAt(null)}
         >
-          <div
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[94vh] flex flex-col overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
+          <button
+            type="button"
+            onClick={() => selectPosterAt(null)}
+            className="fixed top-4 right-4 z-50 p-2.5 rounded-full bg-black/50 hover:bg-black/80 text-white transition-colors"
+            aria-label="Đóng"
           >
-            {/* Modal Top Toolbar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-3.5 border-b border-gray-100 bg-gray-50">
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  {activePoster.category && (
-                    <span className="bg-blue-100 text-primary-dark text-xs font-bold px-2.5 py-0.5 rounded-full">
-                      {activePoster.category}
-                    </span>
-                  )}
-                  <span className="text-xs text-gray-500 font-medium">
-                    Poster {activeIndex + 1}/{filteredPosters.length}
-                  </span>
-                </div>
-                <h2 className="text-base sm:text-lg font-bold text-gray-900 truncate mt-0.5">
-                  {activePoster.title}
-                </h2>
-              </div>
+            <X className="w-6 h-6" />
+          </button>
 
-              <div className="flex items-center gap-2 flex-wrap">
-                {filteredPosters.length > 1 && (
-                  <>
-                    <div className="flex items-center gap-1.5 bg-blue-50 text-primary-dark px-3 py-1.5 rounded-full text-xs font-semibold border border-blue-100">
-                      <Clock className="w-3.5 h-3.5" />
-                      <span>Đổi sau {formatCountdown(secondsLeft)}</span>
-                    </div>
+          {filteredPosters.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevPoster();
+                }}
+                className="fixed left-3 sm:left-5 top-1/2 -translate-y-1/2 z-50 p-2.5 rounded-full bg-black/45 hover:bg-black/75 text-white transition-colors"
+                aria-label="Poster trước"
+              >
+                <ChevronLeft className="w-7 h-7" />
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNextPoster();
+                }}
+                className="fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-50 p-2.5 rounded-full bg-black/45 hover:bg-black/75 text-white transition-colors"
+                aria-label="Poster kế tiếp"
+              >
+                <ChevronRight className="w-7 h-7" />
+              </button>
+            </>
+          )}
 
-                    <button
-                      type="button"
-                      onClick={() => setIsPaused((p) => !p)}
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-200 bg-white hover:bg-gray-100 text-gray-700 transition-colors"
-                      title={isPaused ? 'Tiếp tục tự động chuyển' : 'Tạm dừng tự động chuyển'}
-                    >
-                      {isPaused ? <Play className="w-3.5 h-3.5" /> : <Pause className="w-3.5 h-3.5" />}
-                      <span>{isPaused ? 'Tiếp tục' : 'Tạm dừng'}</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setSwitchMode((m) => (m === 'next' ? 'random' : 'next'))
-                      }
-                      className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
-                        switchMode === 'random'
-                          ? 'bg-primary-light text-white border-primary-light'
-                          : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-100'
-                      }`}
-                      title="Chuyển chế độ tự động sau 5 phút: Kế tiếp hoặc Ngẫu nhiên"
-                    >
-                      <Shuffle className="w-3.5 h-3.5" />
-                      <span>{switchMode === 'random' ? 'Ngẫu nhiên' : 'Kế tiếp'}</span>
-                    </button>
-                  </>
-                )}
-
-                <button
-                  type="button"
-                  onClick={() => selectPosterAt(null)}
-                  className="p-1.5 rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors"
-                  aria-label="Đóng"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Poster Display Area */}
-            <div className="relative flex-1 bg-gray-900 flex items-center justify-center min-h-[55vh] max-h-[72vh] overflow-hidden">
-              {activePoster.image ? (
-                <div className="relative w-full h-[65vh] sm:h-[70vh]">
-                  <Image
-                    src={activePoster.image}
-                    alt={activePoster.title}
-                    fill
-                    sizes="90vw"
-                    className="object-contain p-2"
-                    priority
-                  />
-                </div>
-              ) : (
-                <p className="text-gray-300">Không có hình ảnh poster.</p>
-              )}
-
-              {filteredPosters.length > 1 && (
-                <>
-                  <button
-                    type="button"
-                    onClick={goToPrevPoster}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-2.5 rounded-full shadow-lg transition-all"
-                    aria-label="Poster trước"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => goToNextPoster('next')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 p-2.5 rounded-full shadow-lg transition-all"
-                    aria-label="Poster kế tiếp"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
-                </>
-              )}
-            </div>
-
-            {/* Optional Caption / Article Notes & Quick Controls */}
-            {(activePoster.excerpt || activePoster.content || filteredPosters.length > 1) && (
-              <div className="px-4 sm:px-6 py-3.5 bg-white border-t border-gray-100 max-h-40 overflow-y-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="text-sm text-gray-600 space-y-1">
-                  {activePoster.excerpt && (
-                    <p className="font-medium text-gray-800">{activePoster.excerpt}</p>
-                  )}
-                  {activePoster.content && (
-                    <div
-                      className="prose prose-sm max-w-none text-gray-600"
-                      dangerouslySetInnerHTML={{ __html: activePoster.content }}
-                    />
-                  )}
-                </div>
-
-                {filteredPosters.length > 1 && (
-                  <div className="flex items-center gap-2 shrink-0">
-                    <button
-                      type="button"
-                      onClick={() => goToNextPoster('random')}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-primary-dark text-xs font-bold transition-colors"
-                    >
-                      <Shuffle className="w-3.5 h-3.5" />
-                      Đổi ngẫu nhiên ngay
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => goToNextPoster('next')}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary-dark hover:bg-blue-900 text-white text-xs font-bold transition-colors"
-                    >
-                      Poster kế tiếp
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                )}
-              </div>
+          <div
+            className="relative w-full h-full"
+            onClick={() => selectPosterAt(null)}
+          >
+            {activePoster.image && (
+              <Image
+                src={activePoster.image}
+                alt={activePoster.title}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority
+              />
             )}
           </div>
         </div>

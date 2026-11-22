@@ -1,16 +1,16 @@
 ---
-title: CARE TRÊN CHÓ
-category: Chó
-image: /uploads/gemini_generated_image_22tak722tak722ta-3-.png
+title: PHÒNG BỆNH GIUN TIM Ở CHÓ MÈO
+category: Chăm sóc chung
+image: /uploads/gemini_generated_image_22tak722tak722ta-4-.png
 date: 22/11/2026
 excerpt: >-
-  Mức độ nguy hiểm: Tấn công đa cơ quan (hô hấp, tiêu hóa, da, não bộ) với tỷ lệ
-  tử vong 50–80%, dễ để lại di chứng giật cơ, co giật thần kinh vĩnh viễn (Tài
-  liệu nội khoa CDV).
+  Mức độ nguy hiểm: Giun trưởng thành gây tắc nghẽn động mạch phổi, suy tim và
+  tử vong ở chó; ở mèo chỉ 1–3 con giun cũng có thể gây suy hô hấp cấp hoặc đột
+  tử (Tài liệu nội khoa Heartworm, AHS Heartworm Basics).
 
 
-  Đường lây & dấu hiệu cần khám ngay: Lây nhanh qua giọt bắn hô hấp. Đưa đi khám ngay khi chó sốt 2 pha, ho, ghèn mắt mũi đặc xanh, sừng hóa nứt nẻ đệm chân/mũi hoặc có dấu hiệu nhai tóp tép, co giật (Tài liệu nội khoa CDV).
+  Đường lây & dấu hiệu cần khám ngay: Chỉ 1 vết muỗi đốt có thể truyền ấu trùng vào máu, kể cả thú nuôi trong nhà. Cảnh giác khi thú ho khan kéo dài, nhanh mệt, thở dốc hoặc sụt cân (AHS Heartworm Basics, Tài liệu nội khoa Heartworm).
 
 
-  Khuyến cáo chủ nuôi: Tiêm đủ mũi vắc-xin lõi CDV từ 6–8 tuần đến ≥16 tuần tuổi và nhắc lại định kỳ theo WSAVA 2024; hạn chế cho chó con chưa tiêm đủ mũi tiếp xúc với chó lạ (Tài liệu nội khoa CDV).
+  Khuyến cáo chủ nuôi: Tuân thủ quy tắc "Think 12": dùng thuốc phòng giun tim định kỳ 12 tháng/năm đúng ngày và xét nghiệm kiểm tra mỗi 12 tháng tại bác sĩ thú y, kết hợp kiểm soát muỗi (AHS 2024 Guidelines, AHS Heartworm Basics).
 ---
